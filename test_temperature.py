@@ -53,3 +53,35 @@ def test_absolute_zero():
     assert temp_c.value == -273.15
     assert temp_f.value == -459.67
     assert temp_k.value == 0
+
+def test_temperature_conversions():
+    reference_points = [
+        (-273.15, -459.67, 0),
+        (-40, -40, 233.15),
+        (0, 32, 273.15),
+        (37, 98.6, 310.15),
+        (100, 212, 373.15)
+    ]
+
+    for c, f, k in reference_points:
+        temp_c = Temperature(c, "C")
+        temp_f = Temperature(f, "F")
+        temp_k = Temperature(k, "K")
+
+        assert temp_c.to_fahrenheit() == pytest.approx(f, abs=1e-9)
+        assert temp_c.to_kelvin() == pytest.approx(k, abs=1e-9)
+
+        assert temp_f.to_celsius() == pytest.approx(c, abs=1e-9)
+        assert temp_f.to_kelvin() == pytest.approx(k, abs=1e-9)
+
+        assert temp_k.to_celsius() == pytest.approx(c, abs=1e-9)
+        assert temp_k.to_fahrenheit() == pytest.approx(f, abs=1e-9)
+
+def test_conversion_return_types():
+    temp = Temperature(25, "C")
+
+    assert isinstance(temp.to_celsius(), float)
+    assert isinstance(temp.to_fahrenheit(), float)
+    assert isinstance(temp.to_kelvin(), float)
+
+    
