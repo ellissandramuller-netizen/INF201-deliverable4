@@ -57,3 +57,18 @@ class Temperature:
 
         elif self.unit == "F":
             return ((self.value - 32) * 5 / 9) + 273.15
+
+    def convert_to(self, target_unit):
+        target_unit = target_unit.upper()
+
+        if target_unit == "C":
+            return Temperature(self.to_celsius(), "C")
+
+        elif target_unit == "F":
+            return Temperature(self.to_fahrenheit(), "F")
+
+        elif target_unit == "K":
+            return Temperature(self.to_kelvin(), "K")
+
+        else:
+            raise ValueError("Target unit is not valid")
