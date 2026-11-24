@@ -30,10 +30,30 @@ class Temperature:
 
     def to_celsius(self):
         if self.unit == "C":
-            return self.value
+            return float(self.value)
 
         elif self.unit == "F":
             return (self.value - 32) * 5 / 9
 
         elif self.unit == "K":
             return self.value - 273.15
+
+    def to_fahrenheit(self):
+        if self.unit == "F":
+            return float(self.value)
+
+        elif self.unit == "C":
+            return (self.value * 9 / 5) + 32
+
+        elif self.unit == "K":
+            return ((self.value - 273.15) * 9 / 5) + 32
+
+    def to_kelvin(self):
+        if self.unit == "K":
+            return float(self.value)
+
+        elif self.unit == "C":
+            return self.value + 273.15
+
+        elif self.unit == "F":
+            return ((self.value - 32) * 5 / 9) + 273.15
