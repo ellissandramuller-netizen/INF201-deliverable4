@@ -84,4 +84,47 @@ def test_conversion_return_types():
     assert isinstance(temp.to_fahrenheit(), float)
     assert isinstance(temp.to_kelvin(), float)
 
-    
+def test_convert_to():
+    temp = Temperature(25, "C")
+
+    converted_f = temp.convert_to("F")
+    converted_k = temp.convert_to("K")
+
+    assert isinstance(converted_f, Temperature)
+    assert isinstance(converted_k, Temperature)
+
+    assert converted_f.value == pytest.approx(77, abs=1e-9)
+    assert converted_k.value == pytest.approx(298.15, abs=1e-9)
+
+    assert converted_f.unit == "F"
+    assert converted_k.unit == "K"
+
+def test_convert_to_new_object():
+    temp = Temperature(25, "C")
+
+    converted = temp.convert_to("F")
+
+    assert converted is not temp
+    assert temp.value == 25
+    assert temp.unit == "C"
+
+def test_convert_to_unit_validation():
+    temp = Temperature(25, "C")
+
+    converted = temp.convert_to("f")
+
+    assert converted.unit == "F"
+
+    with pytest.raises(ValueError):
+        temp.convert_to("X")
+
+def test_round_trip_conversion():
+    original = Temperature(25, "C")
+
+    temp_f = original.convert_to("F")
+    temp_k = temp_f.convert_to("K")
+    temp_c = temp_k.convert_to("C")
+
+    assert temp_c == original
+    assert temp_c.value == pytest.approx(25, abs=1e-9)
+    assert temp_c.unit == "C"
