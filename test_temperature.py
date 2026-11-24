@@ -17,5 +17,14 @@ class Temperature:
         elif unit == "K" and value < 0:
             raise ValueError("Temperature below absolute zero")
 
-        self.value = value
-        self.unit = unit
+        self._value = value
+        self._unit = unit
+
+    @property
+    def value(self):
+        return self._value
+
+    @property
+    def unit(self):
+        return self._unit
+    
