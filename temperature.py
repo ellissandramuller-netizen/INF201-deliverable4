@@ -15,13 +15,11 @@ class Temperature:
             raise ValueError("Unit is not valid")
 
         # Reject temperatures below absolute zero
-        if unit == "C" and value < -273.15:
-            raise ValueError("Temperature below absolute zero")
-
-        elif unit == "F" and value < -459.67:
-            raise ValueError("Temperature below absolute zero")
-
-        elif unit == "K" and value < 0:
+        if (
+            (unit == "C" and value < -273.15)
+            or (unit == "F" and value < -459.67)
+            or (unit == "K" and value < 0)
+        ):
             raise ValueError("Temperature below absolute zero")
 
         # Store temperature values in private attributes
