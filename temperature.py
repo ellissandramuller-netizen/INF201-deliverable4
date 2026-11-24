@@ -72,3 +72,9 @@ class Temperature:
 
         else:
             raise ValueError("Target unit is not valid")
+
+    def __str__(self):
+        return f"{self.value:.2f} °{self.unit}"
+
+    def __repr__(self):
+        return f"Temperature({self.value!r}, {self.unit!r})"
