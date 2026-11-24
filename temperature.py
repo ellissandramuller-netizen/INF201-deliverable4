@@ -1,7 +1,7 @@
 
 class Temperature:
 
-    def __init__(self, value, unit):
+    def __init__(self, value, unit="C"):
 
         unit = unit.upper()
 
@@ -78,3 +78,41 @@ class Temperature:
 
     def __repr__(self):
         return f"Temperature({self.value!r}, {self.unit!r})"
+
+    def __eq__(self, other):
+        if not isinstance(other, Temperature):
+            return NotImplemented
+
+        return abs(self.to_celsius() - other.to_celsius()) <= 1e-9
+
+    def __ne__(self, other):
+        result = self.__eq__(other)
+
+        if result is NotImplemented:
+            return NotImplemented
+
+        return not result
+
+    def __lt__(self, other):
+        if not isinstance(other, Temperature):
+            return NotImplemented
+
+        return self.to_celsius() < other.to_celsius() - 1e-9
+
+    def __le__(self, other):
+        if not isinstance(other, Temperature):
+            return NotImplemented
+
+        return self.to_celsius() <= other.to_celsius() + 1e-9
+
+    def __gt__(self, other):
+        if not isinstance(other, Temperature):
+            return NotImplemented
+
+        return self.to_celsius() > other.to_celsius() + 1e-9
+
+    def __ge__(self, other):
+        if not isinstance(other, Temperature):
+            return NotImplemented
+
+        return self.to_celsius() >= other.to_celsius() - 1e-9

@@ -1,6 +1,11 @@
 from temperature import Temperature
 
-temp = Temperature(25, "C")
+temp1 = Temperature(0, "C")
+temp2 = Temperature(32, "F")
+temp3 = Temperature(100, "C")
 
-print(temp)
-print(repr(temp))
+print(temp1 < temp3)
+print(temp1 <= temp2)
+print(temp3 > temp1)
+print(temp1 >= temp2)
+print(temp3 < temp1)
