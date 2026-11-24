@@ -1,30 +1,10 @@
 
-class Temperature:
+from temperature import Temperature
 
-    def __init__(self, value, unit):
+temp1 = Temperature(25, "C")
+temp2 = Temperature(77, "F")
+temp3 = Temperature(298.15, "K")
 
-        unit = unit.upper()
-
-        if unit not in ("C", "F", "K"):
-            raise ValueError("Unit is not valid")
-
-        if unit == "C" and value < -273.15:
-            raise ValueError("Temperature below absolute zero")
-
-        elif unit == "F" and value < -459.67:
-            raise ValueError("Temperature below absolute zero")
-
-        elif unit == "K" and value < 0:
-            raise ValueError("Temperature below absolute zero")
-
-        self._value = value
-        self._unit = unit
-
-    @property
-    def value(self):
-        return self._value
-
-    @property
-    def unit(self):
-        return self._unit
-    
+print(temp1.to_celsius())
+print(temp2.to_celsius())
+print(temp3.to_celsius())
