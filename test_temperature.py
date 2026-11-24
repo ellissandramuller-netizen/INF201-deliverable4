@@ -128,3 +128,42 @@ def test_round_trip_conversion():
     assert temp_c == original
     assert temp_c.value == pytest.approx(25, abs=1e-9)
     assert temp_c.unit == "C"
+
+def test_temperature_equality():
+    temp_c = Temperature(0, "C")
+    temp_f = Temperature(32, "F")
+    temp_k = Temperature(273.15, "K")
+
+    assert temp_c == temp_f
+    assert temp_c == temp_k
+    assert temp_f == temp_k
+
+    assert temp_c != Temperature(100, "C")
+
+def test_temperature_ordering():
+    freezing = Temperature(0, "C")
+    boiling = Temperature(212, "F")
+
+    assert freezing < boiling
+    assert freezing <= boiling
+
+    assert boiling > freezing
+    assert boiling >= freezing
+
+def test_equal_temperature_ordering():
+    temp_c = Temperature(0, "C")
+    temp_f = Temperature(32, "F")
+
+    assert temp_c <= temp_f
+    assert temp_c >= temp_f
+
+    assert not (temp_c < temp_f)
+    assert not (temp_c > temp_f)
+
+def test_comparison_tolerance():
+    temp1 = Temperature(25, "C")
+    temp2 = Temperature(25 + 1e-10, "C")
+
+    assert temp1 == temp2
+    assert temp1 <= temp2
+    assert temp1 >= temp2
