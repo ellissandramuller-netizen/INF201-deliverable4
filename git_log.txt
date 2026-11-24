@@ -1,0 +1,34 @@
+*   971e25b - signehoelevensen, 15 minutes ago : Merge pull request #4 from ellissandramuller-netizen/signe-notebook-final
+|\  
+| * 2bfcdc5 - signehoelevensen, 16 minutes ago : Complete notebook documentation for both tasks
+|/  
+*   2e2a492 - ellissandramuller-netizen, 75 minutes ago : Merge pull request #3 from ellissandramuller-netizen/elli-task1
+|\  
+| * d3eb65e - Ellissandra Muller, 80 minutes ago : Refactor absolute zero validation
+| * c7395ce - Ellissandra Muller, 87 minutes ago : Finalize Temperature class and pytest tests with documentation
+| * 593dea0 - Ellissandra Muller, 2 hours ago : Add pytest tests for temperature comparisons
+| * 496c2c1 - Ellissandra Muller, 2 hours ago : Add tests for convert_to and round-trip conversions
+| * 56ff076 - Ellissandra Muller, 2 hours ago : Add pytest tests for temperature conversions
+| * 366b055 - Ellissandra Muller, 3 hours ago : Add default Celsius unit and initial pytest tests
+| * ab12570 - Ellissandra Muller, 3 hours ago : Implement temperature comparison operators with floating-point tolerance
+| * e77867c - Ellissandra Muller, 3 hours ago : Implement and test string representations for Temperature objects
+| * 3485314 - Ellissandra Muller, 3 hours ago : Implement convert_to method for temperature objects
+| * 7de66c3 - Ellissandra Muller, 3 hours ago : Implement Fahrenheit and Kelvin conversion methods
+| * 8b8cd87 - Ellissandra Muller, 3 hours ago : Move Temperature class to correct file and implement Celsius conversion
+| * c2aa98f - Ellissandra Muller, 3 hours ago : Add read-only properties for temperature value and unit
+| * b5ae69c - Ellissandra Muller, 4 hours ago : Add absolute zero validation for all temperature units
+| * ec657f9 - Ellissandra Muller, 4 hours ago : Add unit validation and case-insensitive handling
+| * e5cd810 - Ellissandra Muller, 4 hours ago : Create temperature class
+| * 4f5b664 - Ellissandra Muller, 4 hours ago : Create initial files for Task 1: Temperature
+* |   9d0035c - signehoelevensen, 19 hours ago : Merge pull request #2 from ellissandramuller-netizen/signe-notebook
+|\ \  
+| * | af241a5 - signehoelevensen, 19 hours ago : Add notebook with Fraction documentation and tests
+|/ /  
+* |   914d0d2 - signehoelevensen, 19 hours ago : Merge pull request #1 from ellissandramuller-netizen/signe-task2
+|\ \  
+| |/  
+|/|   
+| * f6b852d - signehoelevensen, 19 hours ago : Implement Fraction class and pytest tests
+| * 605cde3 - signehoelevensen, 26 hours ago : Add requirements for Task 2
+|/  
+* 3714f90 - ellissandramuller-netizen, 27 hours ago : Initial commit
